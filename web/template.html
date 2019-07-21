@@ -1,0 +1,23 @@
+<script src="https://assets.crowd.aws/crowd-html-elements.js"></script>
+
+<crowd-form>
+  <crowd-keypoint
+    name="annotatedResult"
+    src="{{ task.input.taskObject | grant_read_access }}"
+    header="{{ task.input.header }}"
+    labels="['頭', '左腕']"
+  >
+    <full-instructions header="Keypoint Instructions" >
+      <p>キーポイントツールを使ってね</p>
+      <ol>
+        <li>
+          姿勢推定です。見えないところは勝手に補完しないでね。
+        </li>
+      </ol>
+    </full-instructions>
+
+    <short-instructions>
+      ポイントを指定して下さい。
+    </short-instructions>
+  </crowd-keypoint>
+</crowd-form>
