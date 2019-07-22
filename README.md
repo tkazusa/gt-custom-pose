@@ -101,6 +101,49 @@ S3に保存されているアノテーションデータファイルは次のよ
 ```
 
 
+それぞれのデータオブジェクトに対してアノテーションが統合されるとポストラベリング Lambda関数からは下記のようなレスポンスがGround Truthにひつようい　になります。
+```
+[
+   {        
+        "datasetObjectId": <string>,
+        "consolidatedAnnotation": {
+            "content": {
+                "<labelattributename>": {
+                    # ... label content
+                }
+            }
+        }
+    },
+   {        
+        "datasetObjectId": <string>,
+        "consolidatedAnnotation": {
+            "content": {
+                "<labelattributename>": {
+                    # ... label content
+                }
+            }
+        }
+    }
+    .
+    .
+    .
+]
+```
+
+最終的にジョブの統合マニフェストにあるエントリは次のようになります。
+```
+{  "source-ref"/"source" : "<s3uri or content>", 
+   "<labelAttributeName>": {
+        # ... label content from you
+    },   
+   "<labelAttributeName>-metadata": { # This will be added by Ground Truth
+        "job_name": <labelingJobName>,
+        "type": "groundTruth/custom",
+        "human-annotated": "yes", 
+        "creation_date": <date> # Timestamp of when received from Post-labeling Lambda
+    }
+}
+```
 
 
 ## 参考資料
