@@ -24,7 +24,11 @@ SageMaker Ground Truthでは前・後処理のLambda関数とラベリングツ�
 - この Lambda は一般に、[注釈統合](https://docs.aws.amazon.com/ja_jp/sagemaker/latest/dg/sms-annotation-consolidation.html)に使用されます。
 
 ## 【WIP】本ハンズオンの手順 
+### プレラベリングLambda関数
+- timeoutは60secに
 
+### ポストラベリングLamb
+- timeoutは60secに
 
 ## 参考資料
 - [Amazon SageMaker Ground Truth を使ったカスタムデータラベリングワークフローの構築](https://aws.amazon.com/jp/blogs/news/build-a-custom-data-labeling-workflow-with-amazon-sagemaker-ground-truth/)
