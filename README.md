@@ -28,7 +28,8 @@ SageMaker Ground Truthでは前・後処理のLambda関数とラベリングツ�
 - timeoutは60secに
 
 ### ポストラベリングLamb
-- timeoutは60secに
+- timeoutは60sec
+- Lambda を作成するためのコンソールページで [Execution role (実行ロール)] パネルまでスクロールします。[Create a new role from one or more templates (1 つ以上のテンプレートから新しいロールを作成します)] を選択します。ロールに名前を付けます。[ポリシーテンプレート] ドロップダウンから [Amazon S3 object read-only permissions (Amazon S3 オブジェクトの読み取り専用アクセス権限)] を選択します。Lambda を保存すると、ロールが保存されて選択されます。
 
 ## 参考資料
 - [Amazon SageMaker Ground Truth を使ったカスタムデータラベリングワークフローの構築](https://aws.amazon.com/jp/blogs/news/build-a-custom-data-labeling-workflow-with-amazon-sagemaker-ground-truth/)
