@@ -54,21 +54,20 @@ SageMaker Ground Truthでは前・後処理のLambda関数とラベリングツ�
 - 「一から作成」を選択、関数名に`sagemaker-gt-preprocess`を入力、ランタイムに`Python3.7`を選択した上で`関数の作成`をクリックします。
 - `lambda_function.py`の内容を削除し、準備してある[プレラベリングLambda関数](https://github.com/tkazusa/gt-custom-pose/blob/master/server/processing/sagemaker-gt-preprocess.py)へ書き換えます。
 - `基本設定`の`タイムアウト`の項目を1分0秒へ変更します。
+- ラベリングジョブコンソールに戻り、`Lambda 関数のプレラベリングタスク`で作成したLambda関数を選択します。
 
 #### ポストラベリング Lambda関数の準備
 - プレラベリングLambda関数と同様にAWS Lambdaコンソール、関数の作成をクリックしポストラベリングLambda関数を作成します。
 - 「一から作成」を選択、関数名に`sagemaker-gt-postprocess`を入力、ランタイムに`Python3.7`を選択した上で`関数の作成`をクリックします。
 - `lambda_function.py`の内容を削除し、準備してある[ポストラベリングLambda関数](https://github.com/tkazusa/gt-custom-pose/blob/master/server/processing/sagemaker-gt-postprocess.py)へ書き換えます。
-- `実行ロール`パネルの中で
+- `実行ロール`パネルの中で[AWS ポリシーテンプレートから新しいロールを作成] を選択します。ロール名に`gt-custom-keypoint-post`と入力します。[ポリシーテンプレート] ドロップダウンから [Amazon S3 object read-only permissions (Amazon S3 オブジェクトの読み取り専用アクセス権限)] を選択します。Lambda を保存すると、ロールが保存されて選択されます。
 - `基本設定`の`タイムアウト`の項目を1分0秒へ変更します。
-- 
+- ラベリングジョブコンソールに戻り、`Lambda 関数のポストラベリングタスク`で作成したLambda関数を選択します。
 
+最後に送信をクリックするとラベリングジョブが作成されます。
 
+### ラベリングジョブの実施
 
-
-### ポストラベリングLamb
-- timeoutは60sec
-- Lambda を作成するためのコンソールページで [Execution role (実行ロール)] パネルまでスクロールします。[AWS ポリシーテンプレートから新しいロールを作成] を選択します。ロール名に`gt-custom-keypoint-post`と入力します。[ポリシーテンプレート] ドロップダウンから [Amazon S3 object read-only permissions (Amazon S3 オブジェクトの読み取り専用アクセス権限)] を選択します。Lambda を保存すると、ロールが保存されて選択されます。
 
 ## 参考資料
 - [Amazon SageMaker Ground Truth を使ったカスタムデータラベリングワークフローの構築](https://aws.amazon.com/jp/blogs/news/build-a-custom-data-labeling-workflow-with-amazon-sagemaker-ground-truth/)
