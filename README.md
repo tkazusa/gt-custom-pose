@@ -12,7 +12,8 @@ SageMaker Ground Truthでは前・後処理のLambda関数とラベリングツ�
 - 今回は"Keypoint"というHTMLテンプレートをカスタマイズして[template.html](https://github.com/tkazusa/gt-custom-pose/blob/master/web/template.html)を作成しました。
 
 ### 2. ラベリング対象のデータ
-- ラベリングするデータです。S3に保存します。
+- ラベリングするデータです。S3に保存することでGround Truthでアノテーションすることができます。
+- 今回は[こちら](https://20190820-handson-images.s3-ap-northeast-1.amazonaws.com/images.zip)を使用します。
 
 ### 3. 入力のマニフェスト
 - Ground TruthでどのS3上にあるどのラベリング対象データを使うか、メタデータは何かなどのを記載したファイル。
